@@ -1,0 +1,25 @@
+{% load render_bundle from webpack_loader %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>HRM</title>
+    {% render_bundle 'app' 'css' %}
+</head>
+<body>
+<noscript>
+    <strong>We're sorry but hrm doesn't work properly without JavaScript enabled. Please enable it to
+        continue.</strong>
+</noscript>
+<div id="app"></div>
+<script>
+    window.csrfToken = '{{ csrf_token }}';
+    window.userName = '{{ user.name }}';
+    window.userType = '{{ user.user_type }}';
+</script>
+{% render_bundle 'app' 'js' %}
+</body>
+</html>
