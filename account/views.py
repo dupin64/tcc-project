@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.http.response import JsonResponse
 from .models import Patient, Specialist
 
+
 User = get_user_model()
 
 
